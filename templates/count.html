@@ -1,18 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Get Wordcount</title>
+  </head>
+  <body>
+    {% extends "template.html" %}
+    <div>{{ form.words.label }}: {{ form.words(class="css_class") }}</div>
+    {% if form.words.errors %}
+    <ul class="errors">{% for error in form.words.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+    {% endif %}
 
-<title>Reusable Form Demo</title>
+    {% block content %}
+    <h1> Word counter </h1>
+    <p> Enter text below!</p>
 
-{% with messages = get_flashed_messages(with_categories=true) %}
-{% if messages %}
-<ul>
-  {% for message in messages %}
-  <li>{{ message[1] }}</li>
-  {% endfor %}</ul>
-  {% endif %}
-  {% endwith %}
-  <form action="" method="post">
-    {{ form.csrf }}
-    <div class="input text">
-      {{ form.name.label }} {{ form.name }}</div>
-      <div class="input submit">
-        <input type="submit" value="Submit"></div>
-      </form>
+    <form class="" action="http://localhost:5000/count" method="POST">
+      {{ form.words.label }} <br>
+      {{ form.words }}
+      <br>
+      {{ form.submit }}
+    </form>
+
+    {% endblock %}
+  </body>
+</html>

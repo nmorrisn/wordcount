@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Get Wordcount</title>
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+    <h1> Results </h1>
+    <p> Count is below </p>
+
+    <form class="" action="http://localhost:5000/count" method="POST">
+      <br>
+      {{ form.results.label }} <br>
+      {{ form.results }}
+      <br>
+    </form>
+
+    {% endblock %}
+  </body>
+</html>
